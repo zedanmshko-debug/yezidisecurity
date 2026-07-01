@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  /* Updated Color Palette from design */
+  --color-darkest: #1D2951;
+  /* Donkerste blauw */
+  --color-primary: #2E4057;
+  /* Donkerblauw */
+  --color-secondary: #6B7C93;
+  /* Middelblauw */
+  --color-accent: #4A5D73;
+  /* Accent blauw */
+  --color-light: #E9ECEE;
+  /* Zeer licht grijs */
+  --color-gray: #ACACAC;
+  /* Middel grijs */
+}
+
+html,
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: var(--color-light);
+  color: #1f2937;
+}
+
+/* Security Banner Styles */
+.security-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.security-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Animated gradient text effect */
+.gradient-text {
+  background: linear-gradient(45deg, #60a5fa, #3b82f6, #1d4ed8);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Line-clamp utility for multi-line truncation with ellipsis.
+   Uses the -webkit-line-clamp approach (widely supported in modern WebKit/Blink browsers).
+   Add `clamp-3` to an element to clamp to 3 lines. Adjust or duplicate for different line counts. */
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Custom hover styles for dropdown items */
+.dropdown-item-hover:hover {
+  background-color: var(--color-accent) !important;
+  color: white !important;
+}
+
+/* Mobile menu button focus ring */
+.mobile-menu-button:focus {
+  --tw-ring-color: var(--color-accent);
+}
