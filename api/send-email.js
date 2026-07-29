@@ -55,6 +55,7 @@ export default async function handler(req, res) {
 		const body = new URLSearchParams();
 		body.append("from", `${name || "Website bezoeker"} <postmaster@${MAILGUN_DOMAIN}>`);
 		body.append("to", `${CONTACT_NAME} <${CONTACT_EMAIL}>`);
+		body.append("to", CONTACT_EMAIL);
 		body.append("subject", `Contactformulier: ${company || name || "Nieuw bericht"}`);
 		body.append("text", text);
 
